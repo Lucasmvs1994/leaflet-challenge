@@ -83,11 +83,11 @@ function createMap (earthquakeData)
         
         layer.bindPopup(`<h3>Magnitude: ${feature.properties.mag}</h3>
 
-        <hr><p><strong>Place: </strong>${feature.properties.place}<br>
+        <hr><p><strong>Location of the earthquake: </strong>${feature.properties.place}<br>
 
-        <strong>Time: </strong>${new Date(feature.properties.time)}<br>
+        <strong>Time of the earthquake: </strong>${new Date(feature.properties.time)}<br>
 
-        <strong>Depth: </strong>${feature.geometry.coordinates[2]}</p>`);
+        <strong>Depth of the earthquake: </strong>${feature.geometry.coordinates[2]}</p>`);
         
         };
 
@@ -97,7 +97,7 @@ function createMap (earthquakeData)
 
     legends_context.onAdd = function() {
 
-        var legend_div = L.DomUtil.create("div", "info legend");
+        var legends_scope = L.DomUtil.create("div", "info legend");
 
         var depths = [-10, 10, 30, 50, 70, 90];
 
@@ -105,7 +105,7 @@ function createMap (earthquakeData)
         
         var legend_Data = "<h4> Depth of the earthquake by color </h4>";
 
-        legend_div.innerHTML = legend_Data;
+        legends_scope.innerHTML = legend_Data;
 
       
         for (var i = 0; i < depths.length; i++) {
@@ -113,9 +113,9 @@ function createMap (earthquakeData)
             labels.push('<li style="background-color:' + markerColor(depths[i] + 1) + '"> <span>' + depths[i] + (depths[i + 1] ? '&ndash;' + depths[i + 1] + '' : '+') + '</span></li>');
         }
 
-        legend_div.innerHTML += "<ul>" + labels.join("") + "</ul>";
+        legends_scope.innerHTML += "<ul>" + labels.join("") + "</ul>";
 
-        return legend_div;
+        return legends_scope;
     };
 
 
