@@ -1,7 +1,7 @@
-//dataset used: Past 7 Days -> All Earthquaes (https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson)
+//dataset used: Past 30 Days -> All Earthquaes (https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson)
 
 
-var earthquakeUrl = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson'
+var earthquakeUrl = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson'
 
 
 d3.json(earthquakeUrl).then(function (data) {
